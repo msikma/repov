@@ -13,7 +13,11 @@ same author.
 Installing
 ----------
 
-Todo
+This package is [available on PyPI](https://pypi.python.org/pypi/repov/0.4):
+
+    pip install repov
+
+The source is [available on Github](https://github.com/msikma/repov).
 
 
 Usage
