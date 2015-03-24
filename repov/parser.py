@@ -35,7 +35,7 @@ class Parser(object):
             segment_cmd = self.git_args[segment]
 
             # Attempt to run the command. If it fails, set the segment to
-#           # the unknown segment string.
+            # the unknown segment string.
             try:
                 parsed_segments[segment] = self.parse_segment(segment_cmd)
                 cmd_success = True
