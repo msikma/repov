@@ -3,5 +3,12 @@
 import repov
 
 # Example usage.
-version = repov.get_version()
-print(version)
+print('Default: ' + repov.get_version())
+print('%branch%: ' + repov.get_version('%branch%'))
+print('%branch-any%: ' + repov.get_version('%branch-any%'))
+print('%branch-all%: ' + repov.get_version('%branch-all%'))
+print('%hash%: ' + repov.get_version('%hash%'))
+print('%hash-full%: ' + repov.get_version('%hash-full%'))
+print('%count%: ' + repov.get_version('%count%'))
+print('%count-hex%: ' + repov.get_version('%count-hex%'))
+
