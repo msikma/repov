@@ -26,7 +26,7 @@ def any_branch(string, success):
 
     # Filter out heads/ in case of a regular branch name.
     if 'heads/' in string:
-        string = str.replace(string, 'heads/', '')
+        string = string.replace('heads/', '')
 
     return string
 

@@ -2,9 +2,8 @@
 # Copyright (C) 2015, Michiel Sikma <michiel@sikma.org>
 # MIT licensed
 
-
-from parser import Parser
-from defaults import default_args, default_tpl
+from .parser import Parser
+from .defaults import default_args, default_tpl
 
 
 def get_version(tpl=default_tpl):

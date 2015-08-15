@@ -72,7 +72,7 @@ class Parser(object):
             return subprocess.check_output(
                 Parser.git_cmd + ' ' + segment_cmd[0],
                 shell=True, stderr=devnull
-            ).strip()
+            ).strip().decode('utf-8')
 
 
     def decorate_template(self, tpl, segments):
@@ -83,7 +83,7 @@ class Parser(object):
         for segment in segments:
             # Replace the %original% string from the template with
             # the {original: 'something'} that was retrieved from Git.
-            tpl = str.replace(tpl, '%' + segment + '%', segments[segment])
+            tpl = tpl.replace('%' + segment + '%', segments[segment])
 
         return tpl
 
