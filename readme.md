@@ -13,7 +13,7 @@ same author.
 Installing
 ----------
 
-This package is [available on PyPI](https://pypi.python.org/pypi/repov/0.4):
+This package is [available on PyPI](https://pypi.python.org/pypi/repov/0.6):
 
     pip install repov
 
@@ -48,6 +48,8 @@ repov.get_version('%count-hex%')    # 1b
 repov.get_version('%hash%')         # 7072898
 repov.get_version('%hash-full%')    # 7072898a6a04f867c7d7b8a8aa4249a8d408bc0a
 repov.get_version('%foobar%')       # (unknown)
+repov.get_version('%last-commit%')  # 2017-04-04 10:07:25 (last commit in UTC)
+repov.get_raw('last-commit')        # datetime.datetime(2017, 4, 4, 10, 7, 25)
 ```
 
 The `%branch-any%` variable is the most versatile. The following is returned

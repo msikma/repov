@@ -11,4 +11,5 @@ print('%hash%: ' + repov.get_version('%hash%'))
 print('%hash-full%: ' + repov.get_version('%hash-full%'))
 print('%count%: ' + repov.get_version('%count%'))
 print('%count-hex%: ' + repov.get_version('%count-hex%'))
-
+print('%last-commit%: ' + repov.get_version('%last-commit%'))
+print('get_raw(\'last-commit\'): ' + repr(repov.get_raw('last-commit')))

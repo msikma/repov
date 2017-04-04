@@ -2,6 +2,8 @@
 # Copyright (C) 2015, Michiel Sikma <michiel@sikma.org>
 # MIT licensed
 
+from datetime import datetime
+
 
 def count_hex(string, success):
     '''
@@ -14,6 +16,17 @@ def count_hex(string, success):
 
     # Use format() instead of hex() since we don't want the 0x prefix.
     return format(int(string), 'x')
+
+
+def makedate(string, success):
+    '''
+    Takes a date returned to us from Git and turns it into a Python date object.
+    The date is given in Unix time, e.g. '1486023001'.
+    '''
+    if success is not True:
+        return string
+    
+    return datetime.fromtimestamp(int(string))
 
 
 def any_branch(string, success):
@@ -45,7 +58,9 @@ default_args = {
     # Revision number (number of commits since initial).
     'count': ['rev-list HEAD --count'],
     # Revision number in hexadecimal (example of how to use a transformer).
-    'count-hex': ['rev-list HEAD --count', count_hex]
+    'count-hex': ['rev-list HEAD --count', count_hex],
+    # Last commit date
+    'last-commit': ['log -n 1 --date=format:%s --pretty=format:%cd', makedate]
 }
 
 default_tpl = '%branch-any%-%count%-%hash%'

@@ -6,6 +6,14 @@ from .parser import Parser
 from .defaults import default_args, default_tpl
 
 
+def get_raw(item):
+    '''
+    Returns the result of a single item in its raw form.
+    This is useful for last-commit which is normally a datetime object.
+    '''
+    return repov_parser.parse_item(item)
+
+
 def get_version(tpl=default_tpl):
     '''
     Returns a string with Git repository version information, parsed

@@ -53,6 +53,23 @@ class Parser(object):
 
         return parsed_segments
 
+    def parse_item(self, item):
+        '''
+        Returns the raw value of a single item.
+        '''
+        segment_cmd = self.git_args[item]
+        
+        try:
+            result = self.parse_segment(segment_cmd)
+            cmd_success = True
+        except:
+            result = Parser.unknown_segment
+            cmd_success = False
+            
+        if len(segment_cmd) >= 2:
+            result = segment_cmd[1](result, cmd_success)
+            
+        return result
 
     def parse_template(self, tpl):
         '''
@@ -63,8 +80,7 @@ class Parser(object):
     def parse_segment(self, segment_cmd):
         '''
         Runs a synchronous console command for a segment and returns the
-        result. If a transformer function is defined, the output is first
-        passed through it before it's returned.
+        result.
 
         This uses /dev/null to pipe error output in case something is wrong.
         '''
@@ -83,7 +99,7 @@ class Parser(object):
         for segment in segments:
             # Replace the %original% string from the template with
             # the {original: 'something'} that was retrieved from Git.
-            tpl = tpl.replace('%' + segment + '%', segments[segment])
+            tpl = tpl.replace('%' + segment + '%', str(segments[segment]))
 
         return tpl
 
